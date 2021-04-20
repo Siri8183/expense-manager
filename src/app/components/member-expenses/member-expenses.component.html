@@ -1,34 +1,43 @@
 <app-header></app-header>
 <h3 style="text-align: center;">Manage Expenses - {{memberData.name}}</h3>
-<table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
+<ng-container *ngIf="!(dataSource!=null && dataSource.length>0); else elseTemplate"> 
+    <div style="text-align: center;">
+        <button mat-button (click)="openDialog('Add',{})" mat-flat-button
+            color="accent"><mat-icon>add_box</mat-icon> Add
+            Expense</button>
+    </div>
+</ng-container>
+<ng-template #elseTemplate>
+    <table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
 
-    <ng-container matColumnDef="expense">
-        <th mat-header-cell *matHeaderCellDef> Expense Name</th>
-        <td mat-cell *matCellDef="let element"> {{element.expense}} </td>
-    </ng-container>
+        <ng-container matColumnDef="expense">
+            <th mat-header-cell *matHeaderCellDef> Expense Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.expense}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="amount">
-        <th mat-header-cell *matHeaderCellDef> Amount </th>
-        <td mat-cell *matCellDef="let element">$ {{element.amount}} </td>
-    </ng-container>
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> Amount </th>
+            <td mat-cell *matCellDef="let element">$ {{element.amount}} </td>
+        </ng-container>
 
-    <!-- Action Column -->
-    <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element" class="action-link">
-            <button (click)="openDialog('Update',element)" mat-button color="primary">Edit</button>
-            <button (click)="openDialog('Delete',element)" mat-button color="warn">Delete</button>
-        </td>
-    </ng-container>
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button title="Update Expense" (click)="openDialog('Update',element)" mat-button color="primary"><mat-icon>edit</mat-icon> Edit</button>
+                <button title="Delete Expense" (click)="openDialog('Delete',element)" mat-button color="warn"><mat-icon>delete</mat-icon> Delete</button>
+            </td>
+        </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-<div class="button-row">
-    <button class='action-btn' mat-button class='action-btn ' (click)="openDialog('Add',{})" mat-flat-button
-        color="accent">Add
-        Expense</button>
-    <button class='action-btn' mat-button routerLink="/home" routerLinkActive="active" mat-flat-button color="primary">
-        Go Back
-    </button>
-</div>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="button-row">
+        <button mat-button class='action-btn' (click)="openDialog('Add',{})" mat-flat-button
+            color="accent"><mat-icon>add_box</mat-icon> Add Expense</button>
+        <button class='action-btn' mat-button routerLink="/home" routerLinkActive="active" mat-flat-button
+            color="primary">
+            <mat-icon>keyboard_return</mat-icon> Go Back
+        </button>
+    </div>
+</ng-template>

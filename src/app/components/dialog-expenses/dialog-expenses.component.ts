@@ -19,23 +19,20 @@ export class DialogExpensesComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogExpensesComponent>,
     //@Optional() is used to prevent error if no data is passed
     @Optional() @Inject(MAT_DIALOG_DATA) public data: UsersData
-  ) {
-    console.log(data);
+  ) { 
     this.local_data = { ...data };
     this.action = this.local_data.action;
   }
 
   doAction() {
     if (this.local_data.amount && this.local_data.expense) {
-      // amount should be a number with 2 or less decimals
-      // if(this.local_data.amount.split('.')[1].length>2){
+      // amount should be a number with 2 or less decimals 
       const regex = /^\d+(\.\d{1,2})?$/;
       if (!regex.test(this.local_data.amount)) {
         this.amountError = 'Amount should be a number with atmost 2 decimals';
       } else {
         this.dialogRef.close({ event: this.action, data: this.local_data });
-      }
-      // this.dialogRef.close({event:this.action,data:this.local_data});
+      } ;
     } else {
       if (
         this.local_data.expense == '' ||

@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTable } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { MatTable } from '@angular/material/table'; 
 import { ExpenseService } from 'src/app/services/expense.service';
 import { DialogExpensesComponent } from '../dialog-expenses/dialog-expenses.component';
 
@@ -22,15 +21,12 @@ export class MemberExpensesComponent implements OnInit {
   expenseId: number = 0;
   expenses: any;
   displayedColumns: string[] = ['expense', 'amount', 'action'];
-  dataSource: any = ELEMENT_DATA;
-  // memberData:any;
-  // memberId:number;
+  dataSource: any = ELEMENT_DATA; 
 
   memberData = JSON.parse(localStorage.getItem('memberData'));
   memberId = this.memberData.memberId;
 
-  ngOnInit(): void {
-    console.log(this.memberId);
+  ngOnInit(): void { 
     if (!!this.memberId) {
       this.expenses = this.expenseService
         .getExpensesByMemberId(this.memberId)
@@ -42,8 +38,7 @@ export class MemberExpensesComponent implements OnInit {
             totalAmount = this.dataSource
               .reduce((acc: number, exp) => parseFloat(exp.amount) + acc, 0)
               .toFixed(2);
-          }
-          console.log(totalAmount);
+          } 
         });
     }
   }
@@ -59,7 +54,7 @@ export class MemberExpensesComponent implements OnInit {
     obj.action = action;
     const dialogRef = this.dialog.open(DialogExpensesComponent, {
       width: '450px',
-      height: '450px',
+      height: '350px',
       data: obj,
     });
 
@@ -77,7 +72,7 @@ export class MemberExpensesComponent implements OnInit {
   }
 
   addExpense(row_obj) {
-    var d = new Date();
+    const d = new Date();
     let expense = {
       expenseId: d.getTime(),
       memberId: this.memberId,
@@ -87,15 +82,7 @@ export class MemberExpensesComponent implements OnInit {
 
     this.expenseService.addExpense(expense).subscribe((data) => {
       this.dataSource = data;
-    });
-
-    // this.dataSource.push({
-    //   expenseId:d.getTime(),
-    //   memberId: this.memberId,
-    //   expense:row_obj.expense,
-    //   amount:row_obj.amount
-    // });
-    // this.table.renderRows();
+    }); 
   }
 
   updateExpense(row_obj) {
@@ -107,15 +94,7 @@ export class MemberExpensesComponent implements OnInit {
     };
     this.expenseService.updateExpense(expense).subscribe((data) => {
       this.dataSource = data;
-    });
-
-    // this.dataSource = this.dataSource.filter((value,key)=>{
-    //   if(value.expenseId == row_obj.expenseId){
-    //     value.expense = row_obj.expense;
-    //     value.amount = row_obj.amount;
-    //   }
-    //   return true;
-    // });
+    }); 
   }
 
   deleteExpense(row_obj) {

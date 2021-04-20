@@ -62,13 +62,8 @@ export class HomeComponent implements OnInit {
   }
 
   addMember(row_obj) {
-    var d = new Date();
-
-    // this.dataSource.push({
-    //   id: d.getTime(),
-    //   name: row_obj.name,
-    //   totalAmount: 0,
-    // });
+    const d = new Date();
+ 
     const newMember = {
       memberId: d.getTime(),
       name: row_obj.name,
@@ -76,10 +71,8 @@ export class HomeComponent implements OnInit {
     };
 
     this.memberService.addMember(newMember).subscribe((data) => {
-      this.dataSource = data;
-      console.log(data);
-    });
-    // this.table.renderRows();
+      this.dataSource = data; 
+    }); 
   }
 
   updateMember(row_obj) {
@@ -89,29 +82,19 @@ export class HomeComponent implements OnInit {
     };
     this.memberService.updateMember(member).subscribe((data) => {
       this.dataSource = data;
-    });
-    // this.dataSource = this.dataSource.filter((value, key) => {
-    //   if (value.id == row_obj.id) {
-    //     value.name = row_obj.name;
-    //     value.totalAmount = row_obj.totalAmount;
-    //   }
-    //   return true;
-    // });
+    }); 
   }
 
   deleteMember(row_obj) {
     this.memberService.deleteMember(row_obj.memberId).subscribe((data) => {
       this.dataSource = data;
-    });
-
-    // this.dataSource = this.dataSource.filter((value, key) => {
-    //   return value.id != row_obj.id;
-    // });
+    }); 
   }
 
-  calculateExpenses() {
-    this.memberService.calculateExpenses().subscribe((data: []) => {
-      console.log(data);
+  calculateExpenses() { 
+    
+if(this.dataSource.length>0){
+    this.memberService.calculateExpenses().subscribe((data: []) => { 
       if (!!data) {
         this.expensesResult = data;
  
@@ -119,21 +102,10 @@ export class HomeComponent implements OnInit {
           width: '300px',
           height: '300px',
           data: data,
-        });
-    
-        // dialogRef.afterClosed().subscribe((result) => {
-        //   if (result) {
-        //     if (result.event == 'Add') {
-        //       this.addMember(result.data);
-        //     } else if (result.event == 'Update') {
-        //       this.updateMember(result.data);
-        //     } else if (result.event == 'Delete') {
-        //       this.deleteMember(result.data);
-        //     }
-        //   }
-        // });
+        }); 
       }
     });
+  }
   }
 
   navigateTo(e) {
