@@ -4,7 +4,7 @@ Application to manage group expenses
 This project was generated with Angular CLI version 11.1.2.
 
 ## Built With
-* Angular 11 - Frontend framework
+* Angular 11
 * Type Script
 * SCSS
 * Angular Material 
