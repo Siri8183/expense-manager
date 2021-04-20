@@ -1,27 +1,35 @@
-# ExpenseTracker
+# ExpenseTracker 
+Application to manage group expenses
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+This project was generated with Angular CLI version 11.1.2.
 
-## Development server
+## Built With
+* Angular 11 - Frontend framework
+* Type Script
+* SCSS
+* Angular Material 
+* Node
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## npm packages
+* Express
+* store
+* nodemon
 
-## Code scaffolding
+ ## Deployment
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ To deploy this project locally, clone it on your local machine
 
-## Build
+*	Clone the repo
+> git clone https://github.com/Siri8183/expense-manager.git
+* install dependencies
+> npm install 
+*  start and launch the frontend application
+> ng serve 
+* app will be launched at http://localhost:4200/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Server
+* Navigate to the path 'backend' from the project's root directory
+* install dependencies
+> npm install 
+* Start the server, listens on the port 8081
+> npm run dev 
