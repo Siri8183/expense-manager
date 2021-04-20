@@ -5,7 +5,8 @@ This project was generated with Angular CLI version 11.1.2.
 
 ## Built With
 * Angular 11
-* Type Script
+* TypeScript
+* HTML
 * SCSS
 * Angular Material 
 * Node
