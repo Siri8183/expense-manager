@@ -1,4 +1,4 @@
-# ExpenseTracker 
+# Expense Tracker 
 Application to manage group expenses
 
 This project was generated with Angular CLI version 11.1.2.
@@ -33,3 +33,8 @@ This project was generated with Angular CLI version 11.1.2.
 > npm install 
 * Start the server, listens on the port 8081
 > npm run dev 
+
+![image](https://user-images.githubusercontent.com/10591154/115353173-12920a00-a16d-11eb-863e-814c0d6a4b10.png)
+![image](https://user-images.githubusercontent.com/10591154/115353238-22a9e980-a16d-11eb-9af5-f357cb2e9e9c.png)
+![image](https://user-images.githubusercontent.com/10591154/115353123-0148fd80-a16d-11eb-9a60-e2c2d6cfed73.png)
+
