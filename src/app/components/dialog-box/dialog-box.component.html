@@ -1,0 +1,17 @@
+<div style="float: right; font-weight: 700; cursor: pointer;" (click)="closeDialog()">X</div>
+<h1 mat-dialog-title><strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+    <ng-container *ngIf="action != 'Delete'; else elseTemplate">
+        <mat-form-field>  
+            <input placeholder="{{action}} Name" matInput [(ngModel)]="local_data.name">
+        </mat-form-field> 
+        <div class="error" *ngIf="error!=''">{{error}}</div>
+    </ng-container>
+    <ng-template #elseTemplate>
+        Are you sure to delete <b>{{local_data.name}} </b>and all their expenses?
+    </ng-template>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="doAction()" mat-raised-button color="primary">{{action}}</button>
+    <button mat-button (click)="closeDialog()"mat-raised-button color="warn">Cancel</button>
+</div>

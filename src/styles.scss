@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+table { 
+  width: 90%;
+  margin: 2rem auto 2rem auto;
+}
+
+td.mat-cell, th.mat-header-cell {
+    text-align: center !important;
+    justify-content:center;
+}
+
+th.mat-header-cell { 
+    font-size: 1rem;
+  }  
+
+a:hover {
+   cursor: pointer; 
+}
+
+.text-center{
+    text-align: center;
+}
+
+.action-btn{
+    margin: 1rem !important; 
+    float: right;
+} 
+
+.button-row{
+    margin-right: 4% ; 
+}
+
+.error{
+  color: red;
+  font-size: small;
+}

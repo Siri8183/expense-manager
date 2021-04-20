@@ -1,0 +1,9 @@
+<div style="float: right; font-weight: 700; cursor: pointer;" (click)="closeDialog()">X</div>
+<h1 mat-dialog-title ><strong>Individual Share</strong></h1>
+<div mat-dialog-content>
+    <ng-container *ngIf="data.length>0"> 
+        <div  *ngFor="let e of data">
+            <div>{{e}}</div>
+         </div> 
+    </ng-container> 
+</div>  
